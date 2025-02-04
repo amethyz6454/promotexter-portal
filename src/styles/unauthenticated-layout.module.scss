@@ -1,0 +1,44 @@
+// unauthenticated-layout.module.scss
+@use "cores/mixins/breakpoints" as bp;
+
+.wrapper {
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    position: relative;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 0px;
+        vertical-align: middle;
+        height: 100%;
+    }
+
+    > img {
+        object-fit: cover;
+        z-index: -1;
+    }
+}
+
+.card {
+    max-width: 400px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    gap: var(--spacer-4);
+    background-color: transparent;
+    padding: var(--spacer-32);
+
+    @include bp.media-breakpoint-up(sm) {
+        min-width: 320px;
+        border-radius: var(--spacer-16);
+        background-color: var(--mono-000);
+        box-shadow: 0 var(--spacer-16) var(--spacer-32) 0
+                hsla(var(--color-primary-hsl), 0.5),
+            inset 0 -1px 4px 1px hsla(var(--color-primary-hsl), 0.15);
+    }
+}

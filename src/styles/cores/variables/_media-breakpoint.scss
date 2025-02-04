@@ -1,0 +1,28 @@
+﻿// media-breakpoint.scss
+
+@use "../functions" as fn;
+@use "spacers" as *;
+
+// media-breakpoint variables
+$media-breakpoint-android: $spacer-36 * 10 !default; // 360px
+$media-breakpoint-iphone: $spacer-38 * 10 !default; // 380px
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 580px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1440px,
+    xxl: 1600px,
+) !default;
+
+$container-max-widths: (
+    sm: 580px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1620px,
+) !default;
+
+@include fn.assert-ascending($container-max-widths, "$container-max-widths");
+@include fn.assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include fn.assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");

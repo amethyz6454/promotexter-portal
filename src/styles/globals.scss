@@ -1,0 +1,146 @@
+@use "cores/variables/colors" as *;
+@use "cores/functions" as *;
+
+:root {
+    // colors
+    --background: $white;
+    --foreground: $black;
+
+    @each $count, $color in $light-mode {
+        @if $count != 10 {
+            --mono-00#{$count}: #{$color};
+        } @else {
+            --mono-0#{$count}: #{$color};
+        }
+    }
+
+    @each $count, $color in $light-mode {
+        @if $count != 10 {
+            --mono-00#{$count}-hsl: #{hexToHSL($color)};
+        } @else {
+            --mono-0#{$count}-hsl: #{hexToHSL($color)};
+        }
+    }
+
+    --color-blue: #{$blue-color};
+    --color-red: #{$red-color};
+    --color-green: #{$green-color};
+    --color-orange: #{$orange-color};
+    --color-yellow: #{$yellow-color};
+    --color-cyan: #{$cyan-color};
+
+    @each $variant, $color in $theme-colors {
+        --color-#{$variant}: #{$color};
+        --color-#{$variant}-bg: hsl(#{hexToHSLLighten($color, 25)});
+        --color-#{$variant}-border: #{$color};
+        --color-#{$variant}-text: hsl(#{hexToHSLDarken($color, 30)});
+        --color-#{$variant}-hsl: #{hexToHSL($color)};
+        --color-#{$variant}-highlight: hsl(#{hexToHSLLighten($color)});
+    }
+
+    @each $state, $color in $state-colors {
+        --color-#{$state}-bg: hsl(#{hexToHSLLighten($color, 50)});
+        --color-#{$state}-border: #{$color};
+        --color-#{$state}-text: #{$color};
+    }
+
+    /* fonts */
+    --font-sans-serif: Arial, Helvetica, sans-serif;
+    --font-serif: Georgia, "Times New Roman", Times, serif;
+    --font-monospace: "Courier New", Courier, monospace;
+
+    /* spacings */
+    --spacer-4: 0.25rem; // 4px
+    --spacer-8: 0.5rem; // 8px
+    --spacer-10: 0.625rem; // 10px
+    --spacer-12: 0.75rem; // 12px
+    --spacer-14: 0.875rem; // 14px
+    --spacer-16: 1rem; // 16px
+    --spacer-18: 1.125rem; // 18px
+    --spacer-20: 1.25rem; // 20px
+    --spacer-22: 1.375rem; // 22px
+    --spacer-24: 1.5rem; // 24px
+    --spacer-26: 1.625rem; // 26px
+    --spacer-28: 1.75rem; // 28px
+    --spacer-30: 1.875rem; // 30px
+    --spacer-32: 2rem; // 32px
+    --spacer-34: 2.125rem; // 34px
+    --spacer-36: 2.25rem; // 36px
+    --spacer-38: 2.375rem; // 38px
+    --spacer-40: 2.5rem; // 40px
+    --spacer-42: 2.625rem; // 42px
+    --spacer-44: 2.75rem; // 42px
+    --spacer-46: 2.875rem; // 46px
+    --spacer-48: 3rem; // 48px
+    --spacer-50: 3.125rem; // 50px
+    --spacer-52: 3.25rem; // 50px
+    --spacer-56: 3.5rem; // 56px
+    --spacer-60: 3.75rem; // 60px
+    --spacer-64: 4rem; // 64px
+    --spacer-70: 4.375rem; // 70px
+    --spacer-72: 4.5rem; // 72px
+    --spacer-80: 5rem; // 80px
+    --spacer-88: 5.5rem; // 88px
+    --spacer-90: 5.625rem; // 90px
+    --spacer-96: 6rem; // 96px
+    --spacer-100: 6.25rem; // 100px
+    --spacer-120: 7.5rem; // 120px
+    --spacer-128: 8rem; // 128px
+    --spacer-144: 9rem; // 144px
+    --spacer-160: 10rem; // 160px
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+html,
+body,
+div#__next {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    color: var(--foreground);
+    background-color: var(--background);
+    font-family: var(--font-sans-serif);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .btn {
+        --bs-btn-padding-y: var(--spacer-12);
+        --bs-btn-font-size: var(--spacer-12);
+        --bs-btn-font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+}

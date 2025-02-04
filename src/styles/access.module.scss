@@ -1,0 +1,22 @@
+.consents {
+    font-size: var(--spacer-12);
+}
+
+.footer {
+    text-align: center;
+    font-size: var(--spacer-12);
+}
+
+.notice {
+    font-weight: 500;
+    font-size: var(--spacer-12);
+    padding: var(--spacer-12) var(--spacer-16);
+    background-color: var(--mono-000);
+    border-radius: var(--spacer-8);
+    box-shadow: 0 6px 8px -4px hsla(var(--color-primary-hsl), 0.35),
+        inset 0 -1px 4px 1px hsla(var(--color-primary-hsl), 0.15);
+}
+
+.noticeHeading {
+    margin-bottom: var(--spacer-4);
+}

@@ -1,0 +1,62 @@
+@use "cores/mixins/breakpoints" as bp;
+
+.group {
+    position: relative;
+}
+
+.hasFeedback {
+    display: block;
+}
+
+.label {
+    font-size: var(--spacer-12);
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.placeholder {
+    font-weight: 500;
+    margin-bottom: 0;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transition: 0.2s ease all;
+    transform: translateY(-50%);
+    font-size: var(--spacer-12);
+    left: var(--spacer-16);
+}
+
+.inputGroup {
+    z-index: 1;
+    position: relative;
+}
+
+.input {
+    font-size: var(--spacer-14);
+    padding-top: var(--spacer-16);
+
+    &:focus {
+        z-index: 1;
+    }
+}
+
+.focused,
+.filled {
+    .placeholder {
+        color: var(--mono-005);
+        font-size: var(--spacer-8);
+        transform: translateY(-150%);
+    }
+}
+
+.feedback {
+    font-size: var(--spacer-10);
+    margin-top: 0;
+    line-height: 1;
+    text-align: center;
+
+    &.danger {
+        background-color: var(--color-danger);
+        color: var(--mono-000);
+    }
+}
