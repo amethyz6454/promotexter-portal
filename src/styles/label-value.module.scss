@@ -1,0 +1,25 @@
+.entry {
+    display: flex;
+    flex-direction: column;
+}
+
+.hover:hover {
+    background-color: var(--mono-001);
+}
+
+.label {
+    display: flex;
+    color: var(--mono-005);
+    font-size: var(--spacer-12);
+    margin-bottom: 0;
+}
+
+.value {
+    font-size: var(--spacer-14);
+    line-height: 1.25;
+}
+
+.feedback {
+    font-size: var(--spacer-10);
+    font-weight: 700;
+}

@@ -3,6 +3,7 @@ import UnauthenticatedLayout from "@/components/layouts/UnauthenticatedLayout";
 import usePasswordStrength from "@/hooks/usePasswordStrength";
 import AccessStyles from "@/styles/access.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { Button, ProgressBar } from "react-bootstrap";
 import { At, Eye, EyeSlash, Person } from "react-bootstrap-icons";
@@ -12,6 +13,9 @@ export default function Register() {
     const [password, setPassword] = useState("");
     const [viewPassword, setViewPassword] = useState(false);
     const [viewConfirmPassword, setViewConfirmPassword] = useState(false);
+
+    // router
+    const router = useRouter();
 
     // hooks
     const { progressColor, progressValue, textFeedback } =
@@ -23,6 +27,9 @@ export default function Register() {
     };
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
+    };
+    const handleSubmit = () => {
+        router.push("/dashboard");
     };
 
     // constants
@@ -145,7 +152,7 @@ export default function Register() {
                         required: true,
                     }}
                 />
-                <Button>Register</Button>
+                <Button onClick={handleSubmit}>Register</Button>
                 <small className={AccessStyles.footer}>
                     Already have an account? Login{" "}
                     <Link href="/login">Here.</Link>

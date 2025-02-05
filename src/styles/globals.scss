@@ -124,6 +124,12 @@ body {
         --bs-btn-font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 2px;
+
+        &.btn-xs {
+            --bs-btn-padding-y: var(--spacer-4);
+            --bs-btn-font-size: var(--spacer-10);
+            letter-spacing: 1px;
+        }
     }
 }
 

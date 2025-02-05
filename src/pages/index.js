@@ -1,6 +1,5 @@
 import UnauthenticatedLayout from "@/components/layouts/UnauthenticatedLayout";
 import Link from "next/link";
-import { Card } from "react-bootstrap";
 
 export default function Home() {
     return (

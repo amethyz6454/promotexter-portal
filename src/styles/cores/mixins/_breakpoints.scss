@@ -1,6 +1,8 @@
-// breakpoints.scss
+// _breakpoints.scss
+
 @use "sass:map";
 @use "sass:math";
+@use "sass:list";
 
 @use "../functions" as fn;
 @use "../variables/media-breakpoint" as *;
@@ -10,10 +12,10 @@
     $breakpoints: $grid-breakpoints,
     $breakpoint-names: map.keys($breakpoints)
 ) {
-    $n: index($breakpoint-names, $name);
+    $n: list.index($breakpoint-names, $name);
     @return if(
-        $n != null and $n < length($breakpoint-names),
-        nth($breakpoint-names, $n + 1),
+        $n != null and $n < list.length($breakpoint-names),
+        list.nth($breakpoint-names, $n + 1),
         null
     );
 }
@@ -48,7 +50,7 @@
     $max: breakpoint-max($name, $breakpoints);
 
     @if $max {
-        @media (max-width: ceil($max)) {
+        @media (max-width: math.ceil($max)) {
             @content;
         }
     } @else {
